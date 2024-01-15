@@ -7,6 +7,8 @@
     --gray-600: #29292e;
     --gray-600: #202024;
     --gray-700: #121214;
+    --gray-800: #202024;
+    --gray-900: #121214;
 
     --green-500: #00875f;
 }
@@ -15,10 +17,7 @@
     padding: 0px;
     margin: 0px;
     box-sizing: border-box;
-    font-family: Inter;
 }
-
-
 
 body {
     background: var(--gray-900);
@@ -30,7 +29,7 @@ body,
 input,
 textarea,
 button {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-weight: 400;
     font-weight: 1rem;
 }
