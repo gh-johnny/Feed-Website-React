@@ -44,7 +44,6 @@
     padding: 1.5rem 2rem 2rem;
 }
 
-
 .sidebar footer a {
     width: 100%;
     background: transparent;
@@ -63,6 +62,10 @@
 
     gap: 0.5rem;
     transition: color 0.1s background-color 0.1s;
+}
+
+.sidebar footer a:focus {
+    outline: 2px solid var(--gray-300);
 }
 
 .sidebar footer a:hover {

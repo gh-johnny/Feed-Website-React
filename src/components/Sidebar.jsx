@@ -16,7 +16,7 @@ function Sidebar() {
                     alt='Image that represents user picture'
                     className={styles.avatar}
                 />
-                <strong>John Doe</strong>
+                <strong>Johnny Romero</strong>
                 <span>Web Developer</span>
             </div>
 
