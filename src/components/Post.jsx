@@ -1,8 +1,5 @@
+import Comment from "./Comment"
 import styles from "./Post.module.css"
-
-
-
-
 
 function Post() {
     return (
@@ -71,6 +68,12 @@ function Post() {
                     </button>
                 </footer>
             </form>
+
+            <div className={styles.commentList}>
+                <Comment />
+                <Comment />
+                <Comment />
+            </div>
         </article>
     )
 }
