@@ -3,10 +3,11 @@ import { formatRelative, subDays } from 'date-fns'
 import Avatar from "./Avatar"
 import Comment from "./Comment"
 import styles from "./Post.module.css"
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 function Post({ author, publishedAt, content }) {
-    const [comments, setComments] = useState([1, 2])
+    const [comments, setComments] = useState(['Very good bro, congrats !! 👏👏'])
+    const commentValueRef = useRef(null)
 
     const publishedAtFormatted = formatRelative(subDays(new Date(publishedAt), 3), new Date())
 
@@ -14,7 +15,8 @@ function Post({ author, publishedAt, content }) {
     const handleCreateNewComment = (e) => {
         e.preventDefault()
 
-        setComments([...comments, comments.length + 1])
+        setComments([...comments, commentValueRef?.current.value])
+        commentValueRef.current.value = ''
     }
 
     return (
@@ -87,6 +89,7 @@ function Post({ author, publishedAt, content }) {
                 <strong>Leave your feedback</strong>
 
                 <textarea
+                    ref={commentValueRef}
                     placeholder="Leave a comment ..."
                 />
                 <footer>
@@ -100,8 +103,8 @@ function Post({ author, publishedAt, content }) {
 
             <div className={styles.commentList}>
                 {
-                    comments.map((_, i) =>
-                        <Comment key={i} />
+                    comments.map((comment, i) =>
+                        <Comment content={comment} key={i} />
                     )
                 }
             </div>
