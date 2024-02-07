@@ -89,11 +89,13 @@ function Post({ author, publishedAt, content }) {
                 <strong>Leave your feedback</strong>
 
                 <textarea
+                    name='comment'
                     ref={commentValueRef}
                     placeholder="Leave a comment ..."
                 />
                 <footer>
                     <button
+                        name='submit'
                         type="submit"
                     >
                         Publish
