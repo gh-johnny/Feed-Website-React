@@ -11,12 +11,22 @@ function Post({ author, publishedAt, content }) {
 
     const publishedAtFormatted = formatRelative(subDays(new Date(publishedAt), 3), new Date())
 
-
     const handleCreateNewComment = (e) => {
         e.preventDefault()
 
         setComments([...comments, commentValueRef?.current.value])
         commentValueRef.current.value = ''
+    }
+    const handleNewCommentChange = (e) => {
+        e.target.setCustomValidity('')
+    }
+
+    const deleteComment = (content) => {
+        setComments(prev => prev.filter(item => item !== content))
+    }
+
+    const handleNewInvalidComment = (e) => {
+        e.target.setCustomValidity('Please fill out the comment section')
     }
 
     return (
@@ -89,13 +99,16 @@ function Post({ author, publishedAt, content }) {
                 <strong>Leave your feedback</strong>
 
                 <textarea
-                    name='comment'
+                    name="comment"
                     ref={commentValueRef}
                     placeholder="Leave a comment ..."
+                    onChange={e => handleNewCommentChange(e)}
+                    onInvalid={e => handleNewInvalidComment(e)}
+                    required
                 />
                 <footer>
                     <button
-                        name='submit'
+                        name="submit"
                         type="submit"
                     >
                         Publish
@@ -106,7 +119,11 @@ function Post({ author, publishedAt, content }) {
             <div className={styles.commentList}>
                 {
                     comments.map((comment, i) =>
-                        <Comment content={comment} key={i} />
+                        <Comment
+                            key={i}
+                            deleteComment={deleteComment}
+                            content={comment}
+                        />
                     )
                 }
             </div>
