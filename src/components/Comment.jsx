@@ -10,10 +10,6 @@ function Comment({ content, deleteComment }) {
         deleteComment(content)
     }
 
-    const handleLikeComment = () => {
-        setLikeCount(prev => prev +1)
-    }
-
     return (
         <section className={styles.comment}>
             <Avatar
@@ -49,7 +45,7 @@ function Comment({ content, deleteComment }) {
                 <footer>
                     <button
                         type="button"
-                        onClick={handleLikeComment}
+                        onClick={() => setLikeCount(prev => prev + 1)}
                     >
                         <ThumbsUp />
                         Like <span>{likeCount}</span>
