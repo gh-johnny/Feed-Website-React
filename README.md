@@ -1,6 +1,12 @@
 # Feed Website in React.js and Ts 🚀🚀 
 The purpose of this project is to practice react fundamentals like single responsability components, hooks and user interactivity through them
 
+<img width="800" height="600" src="https://raw.githubusercontent.com/gh-johnny/Feed-Website-React/development/docs/rocket-react-fundamentals0.jpeg" alt="App printscreen">
+<div style="text-align: center;">
+    <img width="240" height="500" src="https://raw.githubusercontent.com/gh-johnny/Feed-Website-React/development/docs/rocket-react-fundamentals1.jpeg" alt="App printscreen">
+    <img width="490" height="500" src="https://raw.githubusercontent.com/gh-johnny/Feed-Website-React/development/docs/rocket-react-fundamentals2.jpeg" alt="App printscreen">
+</div>
+
 Created with vite
 ## Dependencies 📦
 - react (^18.2.0)
@@ -35,4 +41,3 @@ cd Feed-Website-React/ &&
 npm install &&
 npm run dev
 ```
-
