@@ -3,7 +3,14 @@ import styles from "./Comment.module.css"
 import Avatar from "./Avatar"
 import { useState } from "react"
 
-function Comment({ content, deleteComment }) {
+type TContent = string
+
+type TCommentProps = {
+    content: TContent,
+    deleteComment: (content: TContent) => void,
+}
+
+function Comment({ content, deleteComment }: TCommentProps) {
     const [likeCount, setLikeCount] = useState(0)
 
     const handleDeleteComment = () => {

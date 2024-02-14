@@ -1,31 +1,54 @@
 import { formatRelative, subDays } from 'date-fns'
-
 import Avatar from "./Avatar"
 import Comment from "./Comment"
 import styles from "./Post.module.css"
 import { useState, useRef } from 'react'
 
-function Post({ author, publishedAt, content }) {
+type TAvatar = {
+    name: string,
+    role: string,
+    avatarUrl: string
+}
+
+type TContent = {
+    type: 'paragraph' | 'link',
+    content: string,
+}[]
+
+export type TPost = {
+    id: number,
+    author: TAvatar,
+    publishedAt: Date,
+    content: TContent,
+}
+
+type TPostProps = {
+    post: TPost
+}
+
+function Post({ post }: TPostProps) {
+    const { publishedAt, author, content } = post
+
     const [comments, setComments] = useState(['Very good bro, congrats !! 👏👏'])
-    const commentValueRef = useRef(null)
+    const commentValueRef = useRef<HTMLTextAreaElement | null>(null)
 
     const publishedAtFormatted = formatRelative(subDays(new Date(publishedAt), 3), new Date())
 
-    const handleCreateNewComment = (e) => {
+    const handleCreateNewComment = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
 
-        setComments([...comments, commentValueRef?.current.value])
-        commentValueRef.current.value = ''
+        setComments([...comments, commentValueRef!.current!.value])
+        commentValueRef!.current!.value = ''
     }
-    const handleNewCommentChange = (e) => {
+    const handleNewCommentChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         e.target.setCustomValidity('')
     }
 
-    const deleteComment = (content) => {
+    const deleteComment = (content: string) => {
         setComments(prev => prev.filter(item => item !== content))
     }
 
-    const handleNewInvalidComment = (e) => {
+    const handleNewInvalidComment = (e: React.InvalidEvent<HTMLTextAreaElement>) => {
         e.target.setCustomValidity('Please fill out the comment section')
     }
 
@@ -103,7 +126,7 @@ function Post({ author, publishedAt, content }) {
                     ref={commentValueRef}
                     placeholder="Leave a comment ..."
                     onChange={e => handleNewCommentChange(e)}
-                    onInvalid={e => handleNewInvalidComment(e)}
+                    onInvalid={e => handleNewInvalidComment(e as React.InvalidEvent<HTMLTextAreaElement>)}
                     required
                 />
                 <footer>
