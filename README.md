@@ -2,7 +2,7 @@
 The purpose of this project is to practice react fundamentals like single responsability components, hooks and user interactivity through them <br>
 
 Check the live website here 💻<br>
-[https://gh-johnny.github.io/Feed-Website-React/](https://gh-johnny.github.io/Feed-Website-React/ "My live website")
+<a href="https://gh-johnny.github.io/Feed-Website-React/" target="_blank">https://gh-johnny.github.io/Feed-Website-React/</a>
 
 ---
 
