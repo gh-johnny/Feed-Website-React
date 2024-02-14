@@ -1,5 +1,11 @@
 # Feed Website in React.js and Ts 🚀🚀 
-The purpose of this project is to practice react fundamentals like single responsability components, hooks and user interactivity through them
+The purpose of this project is to practice react fundamentals like single responsability components, hooks and user interactivity through them <br>
+
+Check the live website here 💻<br>
+[https://gh-johnny.github.io/Feed-Website-React/](https://gh-johnny.github.io/Feed-Website-React/ "My live website")
+
+---
+
 
 <img width="800" height="600" src="https://raw.githubusercontent.com/gh-johnny/Feed-Website-React/development/docs/rocket-react-fundamentals0.jpeg" alt="App printscreen">
 <div style="text-align: center;">
